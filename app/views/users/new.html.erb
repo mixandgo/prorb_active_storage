@@ -1,0 +1,13 @@
+<h1>New user</h1>
+
+<%= form_with model: User.new do |f| %>
+  <p>
+    <%= f.text_field :name, placeholder: 'Name' %>
+  </p>
+  <p>
+    <%= f.file_field :avatar %>
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+<% end %>
