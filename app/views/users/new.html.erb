@@ -8,6 +8,9 @@
     <%= f.file_field :avatar %>
   </p>
   <p>
+    <%= f.file_field :files, multiple: true %>
+  </p>
+  <p>
     <%= f.submit 'Save' %>
   </p>
 <% end %>
