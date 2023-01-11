@@ -1,6 +1,10 @@
 <h1><%= @user.name %></h1>
 
-<%= image_tag @user.avatar %>
+<% if @user.avatar.image? %>
+  <%= image_tag @user.avatar.variant(:thumb) %>
+<% elsif @user.avatar.representable? %>
+  <%= image_tag @user.avatar.representation(resize_to_limit: [100, 100]) %>
+<% end %>
 
 <% @user.files.each do |file| %>
   <%= image_tag file %>
