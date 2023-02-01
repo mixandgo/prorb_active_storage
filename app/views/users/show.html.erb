@@ -1,12 +1,14 @@
 <h1><%= @user.name %></h1>
 
-<% if @user.avatar.image? %>
-  <%= image_tag @user.avatar.variant(:thumb) %>
-<% elsif @user.avatar.representable? %>
-  <%= image_tag @user.avatar.representation(resize_to_limit: [100, 100]) %>
-<% else %>
-  Not displayable.
-  <%= link_to "Download", rails_blob_path(@user.avatar, disposition: "attachment") %>
+<% if @user.avatar.attached? %>
+  <% if @user.avatar.image? %>
+    <%= image_tag @user.avatar.variant(:thumb) %>
+  <% elsif @user.avatar.representable? %>
+    <%= image_tag @user.avatar.representation(resize_to_limit: [100, 100]) %>
+  <% else %>
+    Not displayable.
+    <%= link_to "Download", rails_blob_path(@user.avatar, disposition: "attachment") %>
+  <% end %>
 <% end %>
 
 <% @user.files.each do |file| %>
