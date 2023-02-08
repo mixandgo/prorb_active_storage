@@ -4,3 +4,5 @@ import "controllers"
 import "direct_upload"
 import * as ActiveStorage from "@rails/activestorage"
 ActiveStorage.start()
+import "trix"
+import "@rails/actiontext"
